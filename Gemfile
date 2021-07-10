@@ -47,8 +47,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'minitest-reporters'
-  # gem 'mini-backtrace'
   gem 'guard-minitest'
 end
 
