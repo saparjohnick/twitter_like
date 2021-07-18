@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-  set_flash_message :notice, :signed_in, :name => resource.name if is_navigational_format? # user.name for notice
+  # set_flash_message :notice, :signed_in, :name => resource.name if is_navigational_format? # user.name for notice
 
   # GET /resource/edit
   def edit
