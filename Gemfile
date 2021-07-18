@@ -11,7 +11,6 @@ gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'rails', '5.1.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '3.1.7'
 gem 'devise'
+gem 'friendly_id'
 gem 'web-console', '>= 3.3.0'
 
 # Use Capistrano for deployment
@@ -58,6 +58,7 @@ group :test do
 end
 
 group :production do
+  gem 'puma', '~> 3.7'
   gem 'rails_12factor'
 end
 
