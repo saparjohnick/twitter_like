@@ -13,7 +13,7 @@
               <span class="carret"></span>
             </a>
             <ul class='dropdown-menu' aria-labelledby="dropdown-link">
-              <li class="dropdown-item"><%= link_to "Profile", user_profile_path(current_user) %></li>
+              <li class="dropdown-item"><%= link_to "Profile", user_profile_path(current_user.slug) %></li>
               <li class="dropdown-item"><%= link_to "Settings", "#" %></li>
               <li class="divider"></li>
               <li class="dropdown-item" id="sign_out_link"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
