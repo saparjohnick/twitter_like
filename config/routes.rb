@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
 
   devise_scope :user do
-    get 'sign_up', to: 'devise/registrations#new'
+    get 'sign_up', to: 'users/registrations#new'
+    get 'sign_in', to: 'users/sessions#new'
   end
 
   get 'users/:id', to: 'users#show', :as => 'user_profile'

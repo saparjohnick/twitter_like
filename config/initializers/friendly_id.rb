@@ -37,8 +37,8 @@ FriendlyId.defaults do |config|
   # Something else to consider is that using the :finders addon boosts
   # performance because it will avoid Rails-internal code that makes runtime
   # calls to `Module.extend`.
-  #
-  # config.use :finders
+  
+  config.use :finders
   #
   # ## Slugs
   #
@@ -84,9 +84,9 @@ FriendlyId.defaults do |config|
   # Here we use the Babosa library to transliterate Russian Cyrillic slugs to
   # ASCII. If you use this, don't forget to add "babosa" to your Gemfile.
   #
-  # config.use Module.new {
-  #   def normalize_friendly_id(text)
-  #     text.to_slug.normalize! :transliterations => [:russian, :latin]
-  #   end
-  # }
+  config.use Module.new {
+    def normalize_friendly_id(text)
+      text.to_slug.normalize! :transliterations => [:russian, :latin]
+    end
+  }
 end

@@ -157,6 +157,14 @@ input {
   height: auto !important;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+     -moz-appearance: checkbox;
+          appearance: checkbox;
+  display: inline-block;
+  width: auto;
+}
+
 label {
   float: left;
   width: calc(100%/3)
@@ -174,4 +182,20 @@ label {
     color: #842029;
   }
 
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  width: auto;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#remember_me_field {
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
