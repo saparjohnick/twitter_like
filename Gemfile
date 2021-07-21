@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '3.1.7'
 gem 'devise'
 gem 'friendly_id'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'web-console', '>= 3.3.0'
 
 # Use Capistrano for deployment

@@ -1,26 +1,26 @@
 <header class="nav navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "twitter like app", root_path, id: "logo" %>
+    <%= link_to "twitter like app", root_url, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li class="active navbar-item"><%= link_to "Home", root_path %></li>
-        <li class="navbar-item"><%= link_to "Help", help_path %></li>
-        <% if signed_in? %>
-          <li><%= link_to "Users", "#" %></li>
+        <li class="active navbar-item"><%= link_to "Home", root_url %></li>
+        <li class="navbar-item"><%= link_to "Help", help_url %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Users", users_url %></li>
           <li class="dropdown show" >
             <a href="#" class=" btn btn-secondary dropdown-toggle" type="button" id="dropdown_link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
               <span class="carret"></span>
             </a>
             <ul class='dropdown-menu' aria-labelledby="dropdown-link">
-              <li class="dropdown-item"><%= link_to "Profile", user_profile_path(current_user.slug) %></li>
-              <li class="dropdown-item"><%= link_to "Settings", "#" %></li>
+              <li class="dropdown-item"><%= link_to "Profile", user_profile_url(current_user.slug) %></li>
+              <li class="dropdown-item"><%= link_to "Settings", edit_user_registration_url %></li>
               <li class="divider"></li>
-              <li class="dropdown-item" id="sign_out_link"><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+              <li class="dropdown-item" id="sign_out_link"><%= link_to 'Sign out', destroy_user_session_url, method: :delete %></li>
             </ul>
           </li>
         <% else %>
-          <li class="navbar-item"><%= link_to "Sign in", sign_in_path %></li>
+          <li class="navbar-item"><%= link_to "Sign in", sign_in_url %></li>
         <% end %>
       </ul>
     </nav>

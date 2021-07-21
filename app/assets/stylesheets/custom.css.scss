@@ -184,6 +184,12 @@ label {
 
 }
 
+.alert {
+  width: calc(100%/5);
+  float: right;
+  margin-right: 10px;
+}
+
 .checkbox {
   margin-top: -10px;
   margin-bottom: 20px;
@@ -198,4 +204,20 @@ label {
 #remember_me_field {
   margin-top: -10px;
   margin-bottom: 10px;
+}
+
+.btn-info {
+  width: calc(100%/5)
+}
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }

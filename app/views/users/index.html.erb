@@ -1,0 +1,15 @@
+<% provide :title, "All users" %>
+
+<h1>All users (<%= @count %>)</h1>
+
+<%= will_paginate %>
+
+  <ul class="users">
+    <%= render @users %> 
+  </ul>
+
+<%= will_paginate %>
+
+<%# Rails делает вывод о том, что @users — это список объектов User;
+ более того, при вызове с коллекцией пользователей, Rails автоматически 
+ перебирает ее и отображает каждого с помощью партиал _user.html.erb %>
