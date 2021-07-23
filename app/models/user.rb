@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # attr_accessor :name, :email, :password, :password_confirmation
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable, 
          :recoverable, :rememberable, :trackable, :validatable
 
   before_save {self.email = email.downcase}
