@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   extend FriendlyId
   # attr_accessor :name, :email, :password, :password_confirmation
   # Include default devise modules. Others available are:
@@ -16,6 +18,10 @@ class User < ApplicationRecord
 
   def to_param
     "#{id} #{name}".parameterize
+  end
+
+  def feed
+    Micropost.all
   end
 
 end
