@@ -64,13 +64,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['HEROKU_DOMAIN'] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => '4540a9e4f3299c',
-    :password => '82c34327fe39e9',
-    :address => 'smtp.mailtrap.io',
-    :domain => 'smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
-  }
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :authentication => :plain,
+      :domain => ENV['GMAIL_SMTP_USER'],
+      :user_name => ENV['GMAIL_SMTP_USER'],
+      :password => ENV['GMAIL_SMTP_PASSWORD'],
+    }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
