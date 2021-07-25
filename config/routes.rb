@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   post 'microposts' => 'microposts#create'
-  delete 'microposts' => 'microposts#destroy'
+  delete 'microposts/:id' => 'microposts#destroy', :as => 'micropost_destroy'
 
   # resources :users, only: [:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

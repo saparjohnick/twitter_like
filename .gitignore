@@ -26,3 +26,5 @@
 /spring/*.pid
 
 .DS_Store
+
+/public/uploads
