@@ -61,7 +61,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "twitter_like_#{Rails.env}"
   config.action_mailer.perform_caching = false
-  
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
   # https://devcenter.heroku.com/articles/mailgun#deploying-to-heroku
   ActionMailer::Base.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
