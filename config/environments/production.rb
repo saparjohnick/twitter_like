@@ -63,14 +63,13 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: ENV['HEROKU_DOMAIN'] }
   config.action_mailer.delivery_method = :smtp
-
-  # https://devcenter.heroku.com/articles/mailgun#deploying-to-heroku
-  ActionMailer::Base.smtp_settings = {
-    :port           => ENV['MAILGUN_SMTP_PORT'],
-    :address        => ENV['MAILGUN_SMTP_SERVER'],
-    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :authentication => :plain,
+  config.action_mailer.smtp_settings = {
+    :user_name => '4540a9e4f3299c',
+    :password => '82c34327fe39e9',
+    :address => 'smtp.mailtrap.io',
+    :domain => 'smtp.mailtrap.io',
+    :port => '2525',
+    :authentication => :cram_md5
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
