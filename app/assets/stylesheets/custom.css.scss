@@ -110,7 +110,9 @@ footer {
 /* sidebar */
 
 aside {
-  height: 2000%;
+  display: flex;
+  flex-direction: column;
+  
   section.user_info {
     margin-top: 20px;
   }
