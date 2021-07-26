@@ -6,11 +6,10 @@ CarrierWave.configure do |config|
     region: 'eu-west-1'
   }
   config.fog_directory    =  ENV['S3_BUCKET']
+  config.fog_public = false
   config.root = Rails.root.join('tmp')
   config.cache_dir = 'carrier_wave'
 
-
   CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Z0-9\.\-_]/
-
 
 end
