@@ -36,7 +36,7 @@ gem 'web-console', '>= 3.3.0'
 gem 'carrierwave'
 # gem 'mini_magick'
 gem 'fog'
-
+gem 'aws-sdk-s3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
