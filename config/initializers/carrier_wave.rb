@@ -5,6 +5,7 @@ CarrierWave.configure do |config|
     :aws_secret_access_key => ENV['S3_SECRET_KEY'],
     region: 'eu-west-1'
   }
+  config.storage = :fog
   config.fog_directory    =  ENV['S3_BUCKET']
   config.fog_public = false
   config.root = Rails.root.join('tmp')
