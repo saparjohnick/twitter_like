@@ -10,8 +10,6 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
-  # https://stackoverflow.com/questions/29417328/how-to-disable-cannot-render-console-from-on-rails
-  config.web_console.permissions = '95.55.24.61'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false

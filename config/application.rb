@@ -15,6 +15,9 @@ module TwitterLike
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
       "<div class=\"field_with_errors control-group error\">#{html_tag}</div>".html_safe
     }
+
+    # https://stackoverflow.com/questions/29417328/how-to-disable-cannot-render-console-from-on-rails
+    config.web_console.permissions = '95.55.24.61'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
