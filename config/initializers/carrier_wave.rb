@@ -11,9 +11,9 @@ CarrierWave.configure do |config|
   config.fog_directory     =  ENV['S3_BUCKET']
 
   # config.root = Rails.root.join('tmp')
-  # config.cache_dir = 'carrier_wave'
-  # config.fog_public     = true                                  
+  config.cache_dir      = 'carrier_wave'
+  config.fog_public     = true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
-  CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Z0-9\.\-_]/
 
+  CarrierWave::SanitizedFile.sanitize_regexp = /[^a-zA-Z0-9\.\-_]/
 end
