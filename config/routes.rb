@@ -21,6 +21,18 @@ Rails.application.routes.draw do
   post 'microposts' => 'microposts#create'
   delete 'microposts/:id' => 'microposts#destroy', :as => 'micropost_destroy'
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  # followers_user GET    /users/:id/followers(.:format)    users#followers
+  # following_user GET    /users/:id/following(.:format)    users#following
+
+  resources :relationships, only: [:create, :destroy]
+  # relationships POST   /relationships(.:format)          relationships#create
+  # relationship DELETE /relationships/:id(.:format)      relationships#destroy
+
   # resources :users, only: [:destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

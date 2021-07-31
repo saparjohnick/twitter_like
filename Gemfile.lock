@@ -426,6 +426,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    rb-readline (0.5.5)
     rbvmomi (2.4.1)
       builder (~> 3.0)
       json (>= 1.8)
@@ -487,6 +488,8 @@ GEM
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
     shellany (0.0.1)
+    shoulda-matchers (4.5.1)
+      activesupport (>= 4.2.0)
     signet (0.14.1)
       addressable (~> 2.3)
       faraday (>= 0.17.3, < 2.0)
@@ -565,9 +568,11 @@ DEPENDENCIES
   rails (= 5.1.1)
   rails-controller-testing
   rails_12factor
+  rb-readline
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver
+  shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

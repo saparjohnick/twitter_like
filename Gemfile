@@ -34,9 +34,10 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'web-console', '>= 3.3.0'
 gem 'carrierwave'
-# gem 'mini_magick'
 gem 'fog'
 gem 'aws-sdk-s3'
+# https://github.com/rails/rails/issues/26658#issuecomment-255590071
+gem 'rb-readline' 
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -62,6 +63,7 @@ end
 
 group :test do
   gem 'minitest-reporters'
+  gem 'shoulda-matchers'
 end
 
 group :production do
