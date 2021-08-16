@@ -7,7 +7,9 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '82b5ce625197d0f21a3cefd76349e06a9d7ebfd5f2507c83a6822745d1c15685c609ed070351ed15ea92bc730e7bacba364172075b3afdca2be4fccb9451e8e7'
-
+  require 'devise/orm/active_record'
+  require_relative '../../lib/devise/strategies/json_web_token'
+  require_relative '../../lib/devise/strategies/cookies_json_web_token'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -260,7 +262,11 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
-
+  config.warden do |manager|
+    manager.strategies.add(:jwt, Devise::Strategies::JsonWebToken)
+    manager.strategies.add(:cookies_jwt, Devise::Strategies::CookiesJsonWebToken)
+    manager.default_strategies(scope: :user).unshift :jwt
+  end
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.

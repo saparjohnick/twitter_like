@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :user_signed_in?, only: [:index, :create, :update, :delete, :following, :followers]
 
   def new

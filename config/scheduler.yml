@@ -1,0 +1,4 @@
+every_day_mailing_worker:
+  cron: "08 23 * * *"
+  class: "EveryDayMailingWorker"
+  queue: default

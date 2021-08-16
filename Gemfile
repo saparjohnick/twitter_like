@@ -10,7 +10,8 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'rails', '5.1.1'
-# Use Puma as the app server
+gem 'sidekiq'
+gem 'sidekiq-cron'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
