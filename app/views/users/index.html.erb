@@ -2,13 +2,13 @@
 
 <h1>All users (<%= @count %>)</h1>
 
-<%= will_paginate %>
+<%= paginate @users %>
 
   <ul class="users">
     <%= render @users %> 
   </ul>
 
-<%= will_paginate %>
+<%= paginate @users %>
 
 <%# Rails делает вывод о том, что @users — это список объектов User;
  более того, при вызове с коллекцией пользователей, Rails автоматически 
