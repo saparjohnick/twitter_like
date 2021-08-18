@@ -6,12 +6,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = authorize User.friendly.find(params[:id])
-    @microposts = authirize @user.microposts.page params[:page]
+    @user = User.friendly.find(params[:id])
+    @microposts = @user.microposts.page params[:page]
   end
 
   def destroy
-    @user = User.friendly.find(params[:id])
+    @user = authorize User.friendly.find(params[:id])
     if @user.present?
       @user.destroy
     end
