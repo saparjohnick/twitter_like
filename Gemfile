@@ -11,7 +11,7 @@ gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'rails', '5.1.1'
 gem 'sidekiq'
-gem 'sidekiq-cron'
+gem 'sidekiq-scheduler'
 gem 'kaminari'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
