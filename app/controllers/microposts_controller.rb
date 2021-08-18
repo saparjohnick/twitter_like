@@ -14,7 +14,7 @@ class MicropostsController < ApplicationController
 
   def destroy
     if @micropost.present?
-      @micropost.destroy!
+      authorize @micropost.destroy!
     end
     redirect_to root_url
     flash[:success] = "Micropost deleted."

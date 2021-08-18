@@ -50,9 +50,9 @@ Rails.application.routes.draw do
         passwords: 'users/passwords',
         registrations: 'users/registrations'
       }
-      resources :users do
+      resources :microposts do
         member do
-          get :microposts, only: %i[index]
+          get :index
         end
       end
     end

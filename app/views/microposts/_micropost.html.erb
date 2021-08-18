@@ -10,5 +10,8 @@
     <% if current_user == micropost.user %>
       <%= link_to "delete", micropost_destroy_url(micropost.id), method: :delete, data: { confirm: "Are you sure?" } %>
     <% end %>
+    <% if policy(micropost).destroy? %>
+      <%= link_to "admin delete", micropost_destroy_url(micropost.id), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
   <span>
 </li>

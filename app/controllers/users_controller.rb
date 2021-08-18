@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.friendly.find(params[:id])
-    @microposts = @user.microposts.page params[:page]
+    @user = authorize User.friendly.find(params[:id])
+    @microposts = authirize @user.microposts.page params[:page]
   end
 
   def destroy
