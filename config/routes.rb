@@ -46,15 +46,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       devise_for :users, controllers: {
-        sessions: 'users/sessions',
-        passwords: 'users/passwords',
-        registrations: 'users/registrations'
-      }
-      resources :microposts do
-        member do
-          get :index
-        end
-      end
+        sessions: 'api/v1/users/sessions',
+        passwords: 'api/v1/users/passwords',
+        registrations: 'api/v1/users/registrations'
+      }, defaults: { format: :json }, as: :users
+      resources :microposts, only: %i[index]
     end
   end
 end

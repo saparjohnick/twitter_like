@@ -1,0 +1,15 @@
+class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
+  protect_from_forgery except: :create
+  respond_to :json
+  def create
+
+    user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
+    if user.save
+      render :json => { :token => user.jti, :email => user.email }, :status => 201
+      return
+    else
+      warden.custom_failure!
+      render :json => user.errors, :status => 422
+    end
+  end
+end

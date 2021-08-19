@@ -12,9 +12,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user = authorize User.friendly.find(params[:id])
-    if @user.present?
-      @user.destroy
-    end
+    @user && @user.destroy
+
     redirect_to root_url
     flash[:notice] = "User succesfully deleted."
   end

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  # include ::JwtDenylist
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: :follower_id,
@@ -14,7 +15,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable, 
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: JwtDenyList
 
   before_save {self.email = email.downcase}
   validates :email, presence: true, length: { maximum: 255 },
