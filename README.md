@@ -5,13 +5,23 @@ it would be great it you leave some code review or any feedback to me.
 
 what's been covered:
 * sign_in/sign_up/recover_password (devise)
-* email confirmation (gmail smtp)
-* postgresql
+* JWT tokens (devise-jwt)
+* worker (Sidekiq, Sidekiq-Scheduler)
+* emails (gmail smtp)
+* db (postgresql)
 * MVC (User, Micropost, Relationship: followed, following)
 * some specs (Rspec, FactoryBot, Faker)
 * pictures attachment (Amazon S3)
 * gravatar
 * deployed on heroku US severs
+* pagination (kaminari)
+* authorization (pundit)
+* some APIs (below)
+
+Some APIs:
+* `POST` to `/api/v1/users` -- registration
+* `POST` to `/api/v1/users/sign_in` -- sign in
+* `GET`  to `/api/v1/microposts` -- shows all user's microposts
 
 how to:
 * open https://twitterlike-prod.herokuapp.com/
