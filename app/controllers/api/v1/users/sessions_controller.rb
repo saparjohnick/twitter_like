@@ -16,9 +16,9 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
     if resource.valid_password?(params[:user_login][:password])
       sign_in("user", resource)
       render :json=> {:success=>true, :auth_token=>resource.jti, :email=>resource.email}
-      return
-    end
-    invalid_login_attempt
+    else
+      invalid_login_attempt
+    
   end
   
   def destroy
@@ -28,12 +28,12 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
   protected
   def ensure_params_exist
     return unless params[:user_login].blank?
-    render :json=>{:success=>false, :message=>"missing user_login parameter"}, :status=>422
+    render :json=>{:success=>false, :message=>"missing user_login parameter"}, :status=>:unprocessable_entity
   end
 
   def invalid_login_attempt
     warden.custom_failure!
-    render :json=> {:success=>false, :message=>"Error with your login or password"}, :status=>401
+    render :json=> {:success=>false, :message=>"Error with your login or password"}, :status=>:unauthorized
   end
 
 end

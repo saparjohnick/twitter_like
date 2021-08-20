@@ -5,11 +5,10 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
 
     user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
     if user.save
-      render :json => { :token => user.jti, :email => user.email }, :status => 201
-      return
+      render :json => { :token => user.jti, :email => user.email }, :status => :success
     else
       warden.custom_failure!
-      render :json => user.errors, :status => 422
+      render :json => user.errors, :status => :unprocessable_entity
     end
   end
 end
