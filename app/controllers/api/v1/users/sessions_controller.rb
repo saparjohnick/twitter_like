@@ -18,7 +18,7 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
       render :json=> {:success=>true, :auth_token=>resource.jti, :email=>resource.email}
     else
       invalid_login_attempt
-    
+    end
   end
   
   def destroy
