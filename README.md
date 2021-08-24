@@ -16,12 +16,14 @@ what's been covered:
 * deployed on heroku US severs
 * pagination (kaminari)
 * authorization (pundit)
+* QueryObject pattern (look at API)
 * some APIs (below)
 
 Some APIs:
 * `POST` to `/api/v1/users` -- registration
 * `POST` to `/api/v1/users/sign_in` -- sign in
 * `GET`  to `/api/v1/microposts` -- shows all user's microposts
+* `GET`  to `/api/v1/microposts_search` -- shows user's microposts by query parameter
 
 how to:
 * open https://twitterlike-prod.herokuapp.com/
