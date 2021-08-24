@@ -6,4 +6,5 @@ class Api::V1::MicropostsController < ApplicationController
     posts = user.microposts
     render json: posts
   end
+
 end
