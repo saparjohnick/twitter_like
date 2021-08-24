@@ -1,9 +1,9 @@
 class BaseQuery
   attr_accessor :relation
 
-  # class << self
-  #   delegate :call, to: :new
-  # end
+  class << self
+    delegate :new, to: :call
+  end
 
   def initialize(relation = default_relation)
     @relation = relation
