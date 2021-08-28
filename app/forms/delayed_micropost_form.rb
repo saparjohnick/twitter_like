@@ -1,0 +1,31 @@
+class DelayedMicropostForm
+  include ActiveModel::Model
+
+  validates :user, presence: true
+  validates :content, presence: true, length: { maximum: 140 }
+
+  attr_accessor :content, :is_delayed, :pub_date
+  attr_reader :user
+
+  def initialize(params)
+    @user = params[:user]
+    @content = params[:content]
+    @is_delayed = params[:is_delayed]
+    @pub_date = params[:pub_date]
+    @picture = params[:picture]
+  end
+
+  def submit
+    raise NotImplementedError, 'No user, content or picture provided' unless @user && (@content || @picture)
+
+    DelayMicropostWorker.perform_at(micropost_pub_date, user_id: @user.id, content: @content)
+  end
+
+  def micropost_pub_date
+    if @is_delayed
+      Time.parse(@pub_date)
+    else
+      @pub_date = Time.now
+    end
+  end
+end
