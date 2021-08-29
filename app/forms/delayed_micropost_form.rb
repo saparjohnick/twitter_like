@@ -18,14 +18,14 @@ class DelayedMicropostForm
   def submit
     raise NotImplementedError, 'No user, content or picture provided' unless @user && (@content || @picture)
 
-    DelayMicropostWorker.perform_at(micropost_pub_date, user_id: @user.id, content: @content)
+    if @is_delayed == true
+      DelayMicropostWorker.perform_at(micropost_pub_date, user_id: @user.id, content: @content)
+    else
+      @user.microposts.create("content": @content, "picture": @picture)
+    end
   end
 
   def micropost_pub_date
-    if @is_delayed
-      Time.parse(@pub_date)
-    else
-      @pub_date = Time.now
-    end
+    Time.parse(@pub_date)
   end
 end

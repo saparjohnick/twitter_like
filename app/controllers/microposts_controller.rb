@@ -13,15 +13,18 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    authorize @micropost.destroy! if @micropost.present?
-    redirect_to root_url
+    raise ActiveRecord::RecordNotFound unless @micropost
+
+    authorize @micropost
+    @micropost.destroy!
     flash[:success] = 'Micropost deleted.'
+    redirect_to root_url
   end
 
   private
 
   def micropost_params
-    result = params.require(:micropost).permit(:content, :picture, :user, :is_delayed, :pub_date)
+    result = params.require(:micropost).permit(:content, :picture, :user, :is_delayed)
     result.merge('user' => current_user)
   end
 
