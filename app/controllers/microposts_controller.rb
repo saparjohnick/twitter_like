@@ -24,7 +24,7 @@ class MicropostsController < ApplicationController
   private
 
   def micropost_params
-    result = params.require(:micropost).permit(:content, :picture, :user, :is_delayed)
+    result = params.require(:micropost).permit(:content, :picture, :user, :is_delayed, :pub_date)
     result.merge('user' => current_user)
   end
 
