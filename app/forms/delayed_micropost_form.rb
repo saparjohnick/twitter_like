@@ -4,7 +4,7 @@ class DelayedMicropostForm
   validates :user, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
-  attr_reader :user, :pub_date, :content, :is_delayed
+  attr_reader :user, :pub_date, :content, :picture, :is_delayed
 
   def initialize(params)
     @user = params[:user]
@@ -15,9 +15,9 @@ class DelayedMicropostForm
   end
 
   def submit
-    raise NotImplementedError, 'No user, content or picture provided' unless @user && (@content || @picture)
+    raise NotImplementedError, 'No user, content or picture provided' unless user_and_content_provided?
 
-    if @pub_date.empty? && @is_delayed
+    if pub_date.empty? && is_delayed
       create_immidiate_micropost
     else
       create_delayed_micropost
@@ -27,14 +27,20 @@ class DelayedMicropostForm
   private 
 
   def micropost_pub_date
-    Time.parse(@pub_date)
+    Time.parse(pub_date)
   end
 
   def create_delayed_micropost
-    DelayMicropostWorker.perform_at(micropost_pub_date, user_id: @user.id, content: @content)
+    DelayMicropostWorker.perform_at(micropost_pub_date, user_id: user.id, content: content)
   end
 
   def create_immidiate_micropost
-    @user.microposts.create("content": @content, "picture": @picture)
+    user.microposts.create(content: content, picture: picture)
+  end
+
+  def user_and_content_provided?
+    return false unless user
+
+    content.present? || picture.present?
   end
 end
