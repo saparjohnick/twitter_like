@@ -2,6 +2,9 @@
   <%= render "devise/shared/error_messages", resource: f.object %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Text to the world something..."%>
+    <%= f.check_box :is_delayed %>
+    <%= f.label :is_delayed, "Should it be delayed?" %>
+    <%= f.datetime_local_field :pub_date %>
   </div>
     <%= f.submit "Post", class: "btn btn-primary"%>
     <span class="picture">
